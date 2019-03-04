@@ -1,0 +1,22 @@
+# The `certSecureFile` and `provProfileSecureFile` files are uploaded to the Azure Pipelines secure files library where they are encrypted.
+# The `P12Password` variable is set in the Azure Pipelines pipeline editor and marked 'secret' to be encrypted.
+steps:
+- task: InstallAppleCertificate@2
+inputs:
+certSecureFile: 'marjorieivyiOScertificate.p12'
+certPwd: $(Mmoreno_5)
+
+- task: InstallAppleProvisioningProfile@1
+inputs:
+provProfileSecureFile: '0648f963-f567-4692-b8ab-b2e8b815229f.mobileprovision'
+
+- task: Xcode@5
+inputs:
+actions: 'build'
+scheme: ''
+sdk: 'iphoneos'
+configuration: 'Build'
+xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+xcodeVersion: 'default' # Options: 8, 9, 10, default, specifyPath
+signingOption: 'default' # Options: nosign, default, manual, auto
+useXcpretty: 'false' # Makes it easier to diagnose build failures
