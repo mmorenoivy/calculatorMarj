@@ -4,7 +4,7 @@ steps:
 - task: InstallAppleCertificate@2
 inputs:
 certSecureFile: 'marjorieivyiOScertificate.p12'
-certPwd: $(Mmoreno_5)
+certPwd: $(Mmoreno_5) # test it
 
 - task: InstallAppleProvisioningProfile@1
 inputs:
