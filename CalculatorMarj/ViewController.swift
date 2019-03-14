@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             canClear = false
         }
         let currentText = resultLabel.text!
-        let textLabel = sender.titleLabel?.text
+        let textLabel = sender.titleLabel!.text
         if let text = textLabel {
             switch text {
             case "+", "*", "÷", "-":
